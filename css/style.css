@@ -14,7 +14,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
-    min-height: 3000px;
+    min-height: 5000px;
 }
 /* NAVBAR */
 .navbar{
@@ -124,17 +124,20 @@ body {
 }
 /* About Section */
 .about, 
-.menu {
+.menu,
+.contact {
     padding: 7rem 7% 1.4rem;
 }
 .about h2,
-.menu h2{
+.menu h2,
+.contact h2{
     text-align: center;
     font-size: 2.6rem;
     margin-bottom: 3rem;
 }
 .about h2 span,
-.menu h2 span{
+.menu h2 span,
+.contact h2 span{
     color: var(--primary);
 }
 .about .row{
@@ -162,10 +165,12 @@ body {
 
 }
 /* Menu Section */
-.menu h2{
+.menu h2,
+.contact h2{
     margin-bottom: 1rem;
 }
-.menu p{
+.menu p, 
+.contact p{
     text-align: center;
     max-width: 30rem;
     margin: auto;
@@ -188,6 +193,19 @@ body {
 }
 .menu .row .menu-card .menu-card-title{
     margin: 1.5rem auto 0.5rem;
+}
+
+/* Contact Section */
+.contact .row{
+    display: flex;
+    margin-top: 2rem;
+    background-color: grey;
+    flex-wrap: wrap;
+}
+.contact .row .maps{
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
 }
 /* Media Queries */
 
