@@ -10,11 +10,13 @@
     border: none;
     text-decoration: none;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
-    min-height: 4000px;
 }
 /* NAVBAR */
 .navbar{
@@ -235,8 +237,43 @@ body {
     background-color: var(--primary);
     cursor: pointer;
 }
-/* Media Queries */
 
+/* Footer */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+}
+footer .socials{
+    padding: 1rem 0;
+}
+footer .socials a{
+    color: #fff;
+    margin: 1rem;
+}
+footer .socials a:hover,
+footer .links a:hover{
+    color: var(--bg);
+}
+footer .links {
+    margin-bottom: 1.5rem;
+}
+footer .links a{
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+footer .creadit {
+    font-size: 0.9rem;
+}
+footer .creadit a{
+    color: var(--bg);
+    font-weight: 750;
+}
+
+
+
+/* Media Queries */
 /* Laptop */
 @Media (max-width: 1366px){
     html {
