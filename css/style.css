@@ -188,6 +188,11 @@ body {
 .menu .row .menu-card{
     text-align: center;
     padding-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu .row .menu-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 .menu .row .menu-card img{
     width: 45%;
@@ -197,6 +202,13 @@ body {
 }
 .menu .row .menu-card .menu-card-title{
     margin: 1rem auto 0.5rem;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+.menu .row .menu-card .menu-card-price {
+    font-size: 1.1rem;
+    color: #ccc;
+    font-weight: 300;
 }
 
 /* Contact Section */
@@ -239,6 +251,12 @@ body {
     background-color: var(--primary);
     cursor: pointer;
 }
+.contact .row form .btn:hover {
+  background-color: #a7784d;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
 
 /* Footer */
 footer {
@@ -256,7 +274,8 @@ footer .socials a{
 }
 footer .socials a:hover,
 footer .links a:hover{
-    color: var(--bg);
+    transform: scale(1.2);
+    color: var(--primary);
 }
 footer .links {
     margin-bottom: 1.5rem;
