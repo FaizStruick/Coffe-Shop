@@ -116,20 +116,38 @@
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.547128358852!2d107.60609677484501!3d-6.874210086379872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6e377527b53%3A0x169893af9fabeb!2sDago%2C%20Kecamatan%20Coblong%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1751776238468!5m2!1sid!2sid" 
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="maps"></iframe>
 
-          <form action="">
+          <form id="form-wa">
             <div class="input-group">
               <i data-feather="user"></i>
-              <input type="text" placeholder="Nama Anda">
+              <input type="text" id="nama" placeholder="Nama Anda" required>
             </div>
             <div class="input-group">
               <i data-feather="mail"></i>
-              <input type="text" placeholder="Email Anda">
+              <input type="email" id="email" placeholder="Email Anda" required>
             </div>
             <div class="input-group">
               <i data-feather="phone"></i>
-              <input type="text" placeholder="Nomor Handphone">
+              <input type="text" id="nomor" placeholder="Nomor Handphone" required>
             </div>
-            <a href="https://wa.me/6281382770650?text=Saya%20ingin%20pesan%20Matcha" class="btn">Kirim Pesan</a>
+            <div class="input-group">
+              <i data-feather="shopping-bag"></i>
+              <select id="produk" required>
+                <option value="">-- Pilih Produk --</option>
+                <option value="Matcha">Matcha</option>
+                <option value="Americano">Americano</option>
+                <option value="Espresso">Espresso</option>
+                <option value="Cappuccino">Cappuccino</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <i data-feather="hash"></i>
+              <input type="text" id="jumlah" placeholder="Jumlah" required>
+            </div>
+            <div class="input-group">
+              <i data-feather="message-square"></i>
+              <input type="text" id="catatan" placeholder="Catatan (Opsional)" >
+            </div>
+          <button type="submit" class="btn">Kirim Pesan</button>
           </form>
 
         </div>
@@ -163,6 +181,37 @@
     </script>
     <!--My JavaScript-->
     <script src="js/script.js"></script>
+
+    <!--Contact Pesanan-->
+    <script>
+    document.getElementById("form-wa").addEventListener("submit", function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+
+    // Ambil nilai input dari form
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const nomor = document.getElementById("nomor").value;
+    const produk = document.getElementById("produk").value;
+    const jumlah = document.getElementById("jumlah").value;
+    const catatan = document.getElementById("catatan").value;
+
+    const pesan = `Halo, saya ingin melakukan pemesanan.
+
+  Nama: ${nama}
+  Email: ${email}
+  No HP: ${nomor}
+  Produk: ${produk}
+  Jumlah: ${jumlah}
+  Catatan: ${catatan || '-'}
+
+  Mohon informasi lebih lanjut. Terima kasih!`;
+
+    const noTujuan = "6281382770650";
+
+    const urlWa = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
+    window.open(urlWa, '_blank');
+  });
+</script>
 
   </body>
 </html>

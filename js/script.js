@@ -23,3 +23,8 @@ document.querySelectorAll('.menu-card').forEach(card => {
   });
 });
 
+// Pesanan
+console.log(pesan);
+window.open(urlWa, '_blank');
+
+
