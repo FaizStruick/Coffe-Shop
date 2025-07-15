@@ -81,7 +81,27 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
+    background-attachment: fixed;
 }
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(178, 134, 91, 0.2), transparent);
+    animation: moveGradient 5s infinite linear;
+    z-index: 0;
+}
+
+@keyframes moveGradient {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .hero::after{
     content: '';
     display: block;
@@ -95,7 +115,8 @@ body {
 .hero .content {
     padding: 1.4rem 7%;
     max-width: 60rem;
-
+    position: relative; z-index: 1;
+    animation: fadeZoomIn 1.2s ease-out both;
 }
 .hero .content h1{
     font-size: 5em;
@@ -144,12 +165,24 @@ body {
 }
 .about .row{
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
 }
 .about .row .about-img{
     flex: 1 1 45rem;
+    align-items: center;
+    justify-content: center;
 }
 .about .row .about-img img{
-    width: 90%;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.about .row .about-img:hover img {
+  transform: scale(1.05) rotate(-1deg);
 }
 .about .row .content{
     flex: 1 1 35rem;
@@ -164,8 +197,36 @@ body {
     font-size: 1.4rem;
     font-weight: 100;
     line-height: 1.6;
-
 }
+.about .row .content .highlight{
+    color: var(--primary);
+    font-weight: bold;
+    background: linear-gradient(to right, var(--primary), transparent);
+    padding: 0 0.3rem;
+    border-radius: 0.3rem;
+}
+/* Stats Section */
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.stat-box {
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid #444;
+  display: inline-block;
+}
+.stat-box h3 {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
 /* Menu Section */
 .menu h2,
 .contact h2{
@@ -402,5 +463,8 @@ footer:hover{
 @Media (max-width: 450px){
     html {
         font-size: 55%;
+    }
+    .stats {
+        flex-direction: column;
     }
 }

@@ -13,6 +13,10 @@
       rel="stylesheet"
     />
 
+    <!-- AOS Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
     <!--Feather icon-->
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -46,28 +50,41 @@
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam,
           ullam?
         </p>
-        <a href="#" class="cta"> Beli Sekarang </a>
+        <a href="#contact" class="cta"> Beli Sekarang </a>
       </main>
     </section>
     <!--Hero Section End-->
 
     <!--About Section start-->
       <section id="about" class="about">
-        <h2><span>Tentang</span> Kami</h2>
+        <h2 data-aos="fade-up"><span>Tentang</span> Kami</h2>
         <div class="row">
-          <div class="about-img">
+          <div class="about-img" data-aos="fade-right" data-aos-duration="1000">
             <img src="img/Tentang-Kami.jpg" alt="Tentang Kami">
           </div>
-          <div class="content">
-            <h3>Kenapa memilih kopi kami ?</h3>
-            <p>Lorem ipsum dolor sit amet, 
-              consectetur adipisicing elit. Ea rem consequuntur quam.</p> 
-            <p>Lorem ipsum dolor sit amet consectetur, 
-              adipisicing elit. Doloremque sunt, corporis error vitae pariatur ducimus.</p>
+          <div class="content" data-aos="fade-left" data-aos-duration="1000"></div>>
+            <h3>Kami menyajikan kopi dengan selera anda</h3>
+            <p><span class="highlight">Coffe Senja</span> hadir untuk memberikan pengalaman ngopi terbaik 
+              dengan cita rasa khas dan tempat yang nyaman..</p> 
+            <p>Kami percaya bahwa kopi bukan hanya minuman, tapi budaya dan cara hidup.</p>
           </div>
         </div>
       </section>
     <!--About Section End-->
+
+    <!--Stats Section Start-->
+    <div class="stats" data-aos="zoom-in-up">
+  <div class="stat-box">
+    <h3><span class="count" data-count="100">0</span>+</h3>
+    <p>Pelanggan Mingguan</p>
+  </div>
+  <div class="stat-box">
+    <h3><span class="count" data-count="5">0</span></h3>
+    <p>Cabang</p>
+  </div>
+</div>
+
+    <!--Stats Section End-->
 
     <!--Menu Section Start-->
     <section id="menu" class="menu">
@@ -212,6 +229,33 @@
     window.open(urlWa, '_blank');
   });
 </script>
+
+  <!--AOS Section-->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+    <!--Stats Section-->
+    <script>
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const update = () => {
+      const target = +counter.getAttribute('data-count');
+      const current = +counter.innerText;
+      const increment = target / 100;
+      if (current < target) {
+        counter.innerText = Math.ceil(current + increment);
+        setTimeout(update, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+</script>
+
+
 
   </body>
 </html>
