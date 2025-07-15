@@ -191,6 +191,7 @@ body {
 .about .row .content h3{
     font-size: 1.7rem;
     margin-bottom: 1rem;
+    color: var(--primary);
 }
 .about .row .content p{
     margin-bottom: 0.8rem;
@@ -220,13 +221,15 @@ body {
   padding: 1rem 2rem;
   border-radius: 1rem;
   border: 1px solid #444;
-  display: inline-block;
 }
 .stat-box h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--primary);
 }
-
+.stats-box p{
+    font-size: 1rem;
+    color: #ccc;
+}
 /* Menu Section */
 .menu h2,
 .contact h2{
@@ -247,9 +250,49 @@ body {
     justify-content: center;
 }
 .menu .row .menu-card{
+    perspective: 1000px;
+    width: 200px;
+    height: 250px;
+    margin: 1rem;
+}
+.menu .row .menu-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+.menu .row .menu-card:hover .menu-inner {
+    transform: rotateY(180deg);
+}
+.menu .row .menu-front, .menu-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
     text-align: center;
-    padding-bottom: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #585858;
+    padding: 1rem;
+}
+.menu .row .menu-front {
+    z-index: 2;
+}
+.menu .row .menu-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+.menu .row .menu-back button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: var(--primary);
+    border: none;
+    color: #fff;
+    cursor: pointer;
 }
 .menu .row .menu-card:hover {
     transform: scale(1.05);

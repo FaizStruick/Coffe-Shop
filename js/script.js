@@ -16,12 +16,6 @@ document.addEventListener('click', function(e){
     }
 });
 
-// Menu Section
-document.querySelectorAll('.menu-card').forEach(card => {
-  card.addEventListener('click', () => {
-    alert("Detail: Matcha - Teh hijau Jepang dengan susu segar.");
-  });
-});
 
 // Pesanan
 console.log(pesan);
