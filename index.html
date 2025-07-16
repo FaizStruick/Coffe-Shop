@@ -78,7 +78,7 @@
         <p>Pelanggan Mingguan</p>
       </div>
       <div class="stat-box">
-        <h3><span class="count" data-count="5">0</span></h3>
+        <h3><span class="count" data-count="3">0</span></h3>
         <p>Cabang</p>
       </div>
     </div>
@@ -170,21 +170,34 @@
             </div>
             <div class="input-group">
               <i data-feather="shopping-bag"></i>
-              <select id="produk" required>
-                <option value="">-- Pilih Produk --</option>
-                <option value="Matcha">Matcha</option>
-                <option value="Americano">Americano</option>
-                <option value="Espresso">Espresso</option>
-                <option value="Cappuccino">Cappuccino</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <i data-feather="hash"></i>
-              <input type="text" id="jumlah" placeholder="Jumlah" required>
-            </div>
+              <div class="product-selection">
+            <label>
+              <input type="checkbox" name="produk[]" value="Americano">
+              Americano
+              <input type="number" name="qty[Americano]" min="1" max="10" placeholder="0" disabled>
+            </label>
+
+            <label>
+              <input type="checkbox" name="produk[]" value="Matcha">
+              Matcha
+              <input type="number" name="qty[Matcha]" min="1" max="10" placeholder="0" disabled>
+            </label>
+
+            <label>
+              <input type="checkbox" name="produk[]" value="Espresso">
+              Espresso
+              <input type="number" name="qty[Espresso]" min="1" max="10" placeholder="0" disabled>
+            </label>
+
+            <label>
+              <input type="checkbox" name="produk[]" value="Cappuccino">
+              Cappuccino
+              <input type="number" name="qty[Cappuccino]" min="1" max="10" placeholder="0" disabled>
+            </label>
+          </div>
             <div class="input-group">
               <i data-feather="message-square"></i>
-              <input type="text" id="catatan" placeholder="Catatan (Opsional)" >
+              <input type="text" id="catatan" placeholder="Catatan (contoh : pakai gula dikit)" >
             </div>
           <button type="submit" class="btn">Kirim Pesan</button>
           </form>

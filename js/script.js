@@ -43,6 +43,18 @@ document.addEventListener('click', function(e){
     window.open(urlWa, '_blank');
   });
 
+// Pilih pesanan
+  const checkboxes = document.querySelectorAll('.product-selection input[type="checkbox"]');
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', function() {
+      const qtyInput = this.nextElementSibling;
+      qtyInput.disabled = !this.checked;
+      if (!this.checked) qtyInput.value = '';
+    });
+  });
+
+
 // Stats
   const counters = document.querySelectorAll('.count');
   counters.forEach(counter => {
