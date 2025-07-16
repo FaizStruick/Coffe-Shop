@@ -273,7 +273,7 @@ body {
     border-radius: 1rem;
     overflow: hidden;
     text-align: center;
-    background-color: #585858;
+    background-color: #444;
     padding: 1rem;
 }
 .menu .row .menu-front {
@@ -334,7 +334,7 @@ body {
 }
 .contact .row form{
     flex: 1 1 45rem;
-    padding: 5rem 2rem;
+    padding: 1.3rem 2.5rem;
     text-align: center;
 }
 .contact .row form .input-group{
