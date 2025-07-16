@@ -507,6 +507,9 @@ footer:hover{
     html {
         font-size: 55%;
     }
+    #hamburger-menu {
+        display: inline-block;
+    }
     .stats {
         flex-direction: column;
     }
