@@ -170,10 +170,6 @@
               <input type="email" id="email" placeholder="Email Anda" required>
             </div>
             <div class="input-group">
-              <i data-feather="phone"></i>
-              <input type="text" id="nomor" placeholder="Nomor Handphone" required>
-            </div>
-            <div class="input-group">
               <i data-feather="shopping-bag"></i>
               <select id="produk" required>
                 <option value="">-- Pilih Produk --</option>
@@ -226,63 +222,12 @@
     <!--My JavaScript-->
     <script src="js/script.js"></script>
 
-    <!--Contact Pesanan-->
-    <script>
-    document.getElementById("form-wa").addEventListener("submit", function(e) {
-    e.preventDefault(); // Mencegah reload halaman
-
-    // Ambil nilai input dari form
-    const nama = document.getElementById("nama").value;
-    const email = document.getElementById("email").value;
-    const nomor = document.getElementById("nomor").value;
-    const produk = document.getElementById("produk").value;
-    const jumlah = document.getElementById("jumlah").value;
-    const catatan = document.getElementById("catatan").value;
-
-    const pesan = `Halo, saya ingin melakukan pemesanan.
-
-  Nama: ${nama}
-  Email: ${email}
-  No HP: ${nomor}
-  Produk: ${produk}
-  Jumlah: ${jumlah}
-  Catatan: ${catatan || '-'}
-
-  Mohon informasi lebih lanjut. Terima kasih!`;
-
-    const noTujuan = "6281382770650";
-
-    const urlWa = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
-    window.open(urlWa, '_blank');
-  });
-</script>
 
   <!--AOS Section-->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
-
-    <!--Stats Section-->
-    <script>
-  const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    const update = () => {
-      const target = +counter.getAttribute('data-count');
-      const current = +counter.innerText;
-      const increment = target / 100;
-      if (current < target) {
-        counter.innerText = Math.ceil(current + increment);
-        setTimeout(update, 30);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    update();
-  });
-</script>
-
-
 
   </body>
 </html>
