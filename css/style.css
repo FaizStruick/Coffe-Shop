@@ -344,20 +344,20 @@ body {
     background-color: var(--bg);
     border: 1px solid #eee;
     padding-left: 2rem;
+    gap: 1.5rem;
 }
 .contact .row form .input-group input{
     width: 100%;
     padding: 2rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     background: none;
     color: #fffffff3;
 }
 .contact .row form .input-group .product-selection {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 1.5rem;
-    width: 100%;
     margin-bottom: 1.5rem;
 }
 
@@ -380,14 +380,38 @@ body {
 }
 
 .contact .row form .input-group .product-selection input[type="number"] {
-    width: 60px;
+    width: 40px;
     padding: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background-color: #222;
     color: #fff;
     border: 1px solid #666;
     border-radius: 0.3rem;
 }
+.contact .row form .input-group .note {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact .row form .input-group .note label {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.contact .row form .input-group .note textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #666;
+    border-radius: 0.5rem;
+    background-color: #222;
+    color: #fff;
+    resize: vertical;
+    min-height: 100px;
+}
+
 
 .contact .row form .btn {
     margin-top: 3rem;
@@ -398,6 +422,7 @@ body {
     background-color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-right: 1rem;
 }
 
 .contact .row form .btn:hover {
@@ -519,12 +544,67 @@ footer:hover{
 }
 
 /* Handphone */
-@Media (max-width: 450px){
+@Media (max-width: 480px){
     html {
         font-size: 55%;
     }
     #hamburger-menu {
         display: inline-block;
+    }
+    .navbar .navbar-nav{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+    .navbar .navbar-nav.active{
+        right: 0;
+    }
+    .navbar .navbar-nav a{
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+    .navbar .navbar-nav a::after{
+        transform-origin: 0 0;
+    }
+    .navbar .navbar-nav a:hover::after{
+        transform: scaleX(0.2);
+    }
+    .about .row{
+        flex-wrap: wrap;
+    }
+    .about .row .about-img img{
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+    }
+    .about .row .content{
+        padding: 0;
+    }
+    .about .row .content h3{
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+    .about .row .content p{
+        font-size: 1.6rem;
+    }
+    .menu p{
+        font-size: 1.2rem;
+    }
+    .contact .row{
+        flex-wrap: wrap;
+    }
+    .contact .row .maps{
+        height: 30rem;
+    }
+    .contact .row form{
+        padding-top: 0;
     }
     .stats {
         flex-direction: column;

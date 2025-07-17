@@ -169,7 +169,6 @@
               <input type="email" id="email" placeholder="Email Anda" required>
             </div>
             <div class="input-group">
-              <i data-feather="shopping-bag"></i>
               <div class="product-selection">
             <label>
               <input type="checkbox" name="produk[]" value="Americano">
@@ -195,9 +194,10 @@
               <input type="number" name="qty[Cappuccino]" min="1" max="10" placeholder="0" disabled>
             </label>
           </div>
-            <div class="input-group">
-              <i data-feather="message-square"></i>
-              <input type="text" id="catatan" placeholder="Catatan (contoh : pakai gula dikit)" >
+
+            <div class="note">
+              <label for="catatan">Catatan : </label>
+              <textarea  id="catatan" placeholder="Catatan : " ></textarea>
             </div>
           <button type="submit" class="btn">Kirim Pesan</button>
           </form>
