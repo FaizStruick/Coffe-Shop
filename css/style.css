@@ -414,7 +414,7 @@ body {
 .contact .row form .button-group {
     margin-top: 2rem;
     display: flex;
-    justify-content: flex-start; /* center atau end bisa disesuaikan */
+    justify-content: flex-start;
 }
 
 .contact .row form .button-group .btn {
@@ -574,10 +574,13 @@ footer:hover{
     .contact .row .maps {
         height: 30rem;
     }
-    .contact .row form .input-group .product-selection label,
-    .contact .row form .btn {
-        padding: 1rem;
-        text-align: center;
+    .contact .row form .input-group .product-selection label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .contact .row form .input-group .product-selection input[type="number"] {
+        width: 100%;
     }
     .contact .row form {
         display: flex;
