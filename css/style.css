@@ -544,7 +544,7 @@ footer:hover{
 }
 
 /* Handphone */
-@Media (max-width: 480px){
+@Media (max-width: 470px){
     html {
         font-size: 55%;
     }
