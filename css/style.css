@@ -411,10 +411,15 @@ body {
     resize: vertical;
     min-height: 100px;
 }
+.contact .row form .button-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start; /* center atau end bisa disesuaikan */
+}
 
-
-.contact .row form .btn {
+.contact .row form .button-group .btn {
     margin-top: 3rem;
+    margin-right: 1rem;
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1.7rem;
@@ -422,10 +427,10 @@ body {
     background-color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-right: 1rem;
 }
 
-.contact .row form .btn:hover {
+
+.contact .row form .button-group .btn:hover {
     background-color: #a7784d;
     transform: scale(1.05);
 }
@@ -479,7 +484,7 @@ footer:hover{
     }
 }
 /* Tablet */
-@Media (max-width: 768px){
+@media (max-width: 768px){
     html {
         font-size: 62.5%;
     }
@@ -551,6 +556,11 @@ footer:hover{
     #hamburger-menu {
         display: inline-block;
     }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+   }
     .contact .row{
         flex-direction: column;
         gap: 1rem;
@@ -564,9 +574,19 @@ footer:hover{
     .contact .row .maps {
         height: 30rem;
     }
-    .contact .row form,
-    .contact .row btn {
+    .contact .row form .input-group .product-selection label,
+    .contact .row form .btn {
         padding: 1rem;
         text-align: center;
+    }
+    .contact .row form {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .row form .button-group {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
     }
 }
