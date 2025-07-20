@@ -287,9 +287,10 @@ body {
     color: #fff;
 }
 .menu .row .menu-back button {
-    margin-top: 1rem;
+    margin: 3rem 2rem;
     padding: 0.5rem;
     background: var(--primary);
+    border-radius: 0.5rem;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -324,6 +325,8 @@ body {
 /* Contact Section */
 .contact .row{
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 1rem;
     background-color: grey;
 }
@@ -333,18 +336,22 @@ body {
     object-fit: cover;
 }
 .contact .row form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     flex: 1 1 45rem;
     padding: 1.3rem 2.5rem;
     text-align: center;
 }
 .contact .row form .input-group{
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 2rem;
     background-color: var(--bg);
     border: 1px solid #eee;
     padding-left: 2rem;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 .contact .row form .input-group input{
     width: 100%;
@@ -412,20 +419,21 @@ body {
     min-height: 100px;
 }
 .contact .row form .button-group {
-    margin-top: 2rem;
+    text-align: center;
+    margin: 2rem 2rem;
     display: flex;
+    align-self: flex-start;
     justify-content: flex-start;
 }
 
 .contact .row form .button-group .btn {
-    margin-top: 3rem;
-    margin-right: 1rem;
-    display: inline-block;
-    padding: 1rem 3rem;
+    padding: 1rem 2.5rem;
     font-size: 1.7rem;
-    color: #fff;
+    color: white;
+    border: none;
     background-color: var(--primary);
     cursor: pointer;
+    border-radius: 0.5rem;
     transition: all 0.3s ease;
 }
 
@@ -546,6 +554,14 @@ footer:hover{
     .contact .row form{
         padding-top: 0;
     }
+    .contact .row form .button-group {
+        justify-content: center;
+        padding: 1rem;
+    }
+    .contact .row form .button-group .btn {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 /* Handphone */
@@ -567,6 +583,9 @@ footer:hover{
         margin-top: 1rem;
         background-color: grey;
     }
+    .contact .row form {
+        flex-direction: column;
+    }
     .contact .row .maps,
     .contact .row form{
         width: 100%;;
@@ -577,19 +596,20 @@ footer:hover{
     .contact .row form .input-group .product-selection label {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 1rem;
     }
     .contact .row form .input-group .product-selection input[type="number"] {
         width: 100%;
     }
-    .contact .row form {
-        display: flex;
+    .contact .row form .input-group {
         flex-direction: column;
     }
     .contact .row form .button-group {
-        width: 100%;
+        align-self: stretch;
         display: flex;
         justify-content: center;
-        margin-top: 2rem;
+    }
+    .contact .row form .button-group .btn {
+        width: 70%;
     }
 }
