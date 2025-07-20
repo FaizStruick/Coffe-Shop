@@ -307,9 +307,9 @@ body {
     border-radius: 50%;
 }
 .menu .row .menu-card img:hover {
-  filter: brightness(1.2) contrast(1.1);
-  transform: rotate(2deg) scale(1.05);
-  transition: all 0.4s ease;
+    filter: brightness(1.2) contrast(1.1);
+    transform: rotate(2deg) scale(1.05);
+    transition: all 0.4s ease;
 }
 .menu .row .menu-card .menu-card-title{
     margin: 1rem auto 0.5rem;
@@ -344,6 +344,7 @@ body {
     text-align: center;
 }
 .contact .row form .input-group{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -371,7 +372,7 @@ body {
 .contact .row form .input-group .product-selection label {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 1.3rem;
     background-color: #111;
     padding: 1rem;
     border: 1px solid #444;
@@ -389,7 +390,7 @@ body {
 .contact .row form .input-group .product-selection input[type="number"] {
     width: 40px;
     padding: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     background-color: #222;
     color: #fff;
     border: 1px solid #666;
@@ -403,7 +404,7 @@ body {
 
 .contact .row form .input-group .note label {
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .contact .row form .input-group .note textarea {
@@ -423,7 +424,7 @@ body {
     margin: 2rem 2rem;
     display: flex;
     align-self: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .contact .row form .button-group .btn {
@@ -552,7 +553,11 @@ footer:hover{
         height: 30rem;
     }
     .contact .row form{
-        padding-top: 0;
+        max-width: 600px;
+        margin: auto;
+    }
+    .contact .row form .input-group input {
+        font-size: 1.5rem;
     }
     .contact .row form .button-group {
         justify-content: center;
