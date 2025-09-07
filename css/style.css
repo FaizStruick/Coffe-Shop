@@ -556,8 +556,12 @@ footer:hover{
         max-width: 600px;
         margin: auto;
     }
+    .contact .row form .input-group .product-selection input[type="number"] {
+        width: 100%;
+    }
     .contact .row form .input-group input {
         font-size: 1.5rem;
+        flex-direction: column;
     }
     .contact .row form .button-group {
         justify-content: center;
