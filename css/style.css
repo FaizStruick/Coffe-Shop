@@ -1,3 +1,69 @@
+/* Weather widget position classes */
+.weather-bottom-right {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    left: auto;
+    top: auto;
+}
+.weather-bottom-left {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    right: auto;
+    top: auto;
+}
+.weather-top-right {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    left: auto;
+    bottom: auto;
+}
+.weather-top-left {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    right: auto;
+    bottom: auto;
+}
+
+@media (max-width: 600px) {
+    .weather-bottom-right, .weather-bottom-left, .weather-top-right, .weather-top-left {
+        bottom: 0.7rem !important;
+        top: auto !important;
+        left: auto !important;
+        right: 0.7rem !important;
+        padding: 0.7rem 1rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 0.8rem !important;
+        min-width: 0;
+        max-width: 90vw;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.13);
+        gap: 0.5rem !important;
+    }
+    .weather-bottom-left {
+        left: 0.7rem !important;
+        right: auto !important;
+    }
+    .weather-top-right {
+        top: 0.7rem !important;
+        bottom: auto !important;
+        right: 0.7rem !important;
+        left: auto !important;
+    }
+    .weather-top-left {
+        top: 0.7rem !important;
+        bottom: auto !important;
+        left: 0.7rem !important;
+        right: auto !important;
+    }
+    .weather-bottom-right img, .weather-bottom-left img, .weather-top-right img, .weather-top-left img,
+    .weather-bottom-right span, .weather-bottom-left span, .weather-top-right span, .weather-top-left span {
+        font-size: 1.2rem !important;
+        width: 1.5rem !important;
+    }
+}
 /* Weather widget responsive */
 @media (max-width: 600px) {
     #weather-widget {
