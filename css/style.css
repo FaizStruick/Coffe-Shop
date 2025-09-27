@@ -594,6 +594,9 @@ footer:hover{
     }
     .contact .row form {
         flex-direction: column;
+       padding: 2rem 1rem;
+       border-radius: 1rem;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .contact .row .maps,
     .contact .row form{
@@ -601,24 +604,86 @@ footer:hover{
     }
     .contact .row .maps {
         height: 30rem;
+       border-radius: 1rem;
     }
     .contact .row form .input-group .product-selection label {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+       padding: 1rem 0.7rem;
+       font-size: 1.1rem;
     }
     .contact .row form .input-group .product-selection input[type="number"] {
         width: 100%;
+       padding: 0.7rem;
+       font-size: 1.2rem;
     }
     .contact .row form .input-group {
         flex-direction: column;
+       gap: 1.2rem;
+       padding: 1rem 0.5rem;
+       border-radius: 0.7rem;
     }
     .contact .row form .button-group {
         align-self: stretch;
         display: flex;
         justify-content: center;
+       margin: 1.5rem 0 0.5rem 0;
     }
     .contact .row form .button-group .btn {
         width: 70%;
+       font-size: 1.3rem;
+       padding: 1.2rem 0;
     }
+
+   /* Section spacing */
+   .about, .menu, .contact {
+       padding: 4rem 3% 1.2rem;
+   }
+   .about .row, .menu .row {
+       gap: 1.2rem;
+   }
+   .menu .row .menu-card {
+       width: 90vw;
+       max-width: 320px;
+       height: auto;
+       min-height: 220px;
+       margin: 1.2rem auto;
+   }
+   .menu .row .menu-card img {
+       width: 38vw;
+       max-width: 120px;
+   }
+   .menu .row .menu-card .menu-card-title {
+       font-size: 1.2rem;
+   }
+   .menu .row .menu-card .menu-card-price {
+       font-size: 1.1rem;
+   }
+   .hero .content h1 {
+       font-size: 2.2em;
+   }
+   .hero .content p {
+       font-size: 1.1rem;
+   }
+   .hero .content .cta {
+       font-size: 1.1rem;
+       padding: 0.8rem 1.5rem;
+   }
+   footer {
+       padding: 1.2rem 0 2rem;
+   }
+   footer .links a {
+       padding: 0.5rem 0.7rem;
+   }
+   .about .row .about-img img {
+       width: 90%;
+       max-width: 220px;
+   }
+   .about .row .content h3 {
+       font-size: 1.2rem;
+   }
+   .about .row .content p {
+       font-size: 1rem;
+   }
 }
