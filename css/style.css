@@ -586,6 +586,10 @@ footer:hover{
         max-width: 1200px;
         margin: auto;
    }
+   /* Fix hero background on mobile */
+   .hero {
+       background-attachment: scroll !important;
+   }
     .contact .row{
         flex-direction: column;
         gap: 1rem;
