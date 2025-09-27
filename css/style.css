@@ -1,3 +1,11 @@
+/* Ukuran checkbox menu agar sedang */
+.contact .row form .input-group .product-selection input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: var(--primary);
+    margin-right: 0.7em;
+    vertical-align: middle;
+}
 :root{
     --primary: #c09468;
     --bg: #010101
