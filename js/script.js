@@ -18,40 +18,62 @@ document.addEventListener('click', function(e){
 
 // Contact Pesanan
     document.getElementById("form-wa").addEventListener("submit", function(e) {
-    e.preventDefault(); // Mencegah reload halaman
+      e.preventDefault(); // Mencegah reload halaman
 
-    // Ambil nilai input dari form
-    const nama = document.getElementById("nama").value;
-    const email = document.getElementById("email").value;
-    const produk = document.getElementById("produk").value;
-    const jumlah = document.getElementById("jumlah").value;
-    const catatan = document.getElementById("catatan").value;
+      // Ambil nilai input dari form
+      const nama = document.getElementById("nama").value;
+      const email = document.getElementById("email").value;
+      // Produk dan jumlah dari checkbox
+      let produkList = [];
+      document.querySelectorAll('.product-selection input[type="checkbox"]:checked').forEach(cb => {
+        const prod = cb.value;
+        const qty = cb.nextElementSibling.value || 1;
+        produkList.push(`${prod} (${qty})`);
+      });
+      const produk = produkList.join(', ');
+      const catatan = document.getElementById("catatan").value;
 
-    const pesan = `Halo, saya ingin melakukan pemesanan kopi.
+      const pesan = `Halo, saya ingin melakukan pemesanan kopi.\n\nNama: ${nama}\nEmail: ${email}\nProduk: ${produk}\nCatatan: ${catatan || '-'}\n\nMohon tunggu informasi lebih lanjut. Terima kasih!`;
 
-  Nama: ${nama}
-  Email: ${email}
-  Produk: ${produk}
-  Jumlah: ${jumlah}
-  Catatan: ${catatan || '-'}
-
-  Mohon tunggu informasi lebih lanjut. Terima kasih!`;
-
-    const noTujuan = "6281382770650";
-
-    const urlWa = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
-    window.open(urlWa, '_blank');
-  });
+      const noTujuan = "6281382770650";
+      const urlWa = `https://wa.me/${noTujuan}?text=${encodeURIComponent(pesan)}`;
+      window.open(urlWa, '_blank');
+      if (typeof showToast === 'function') showToast('Pesanan berhasil dikirim ke WhatsApp!');
+      // Reset form setelah submit
+      e.target.reset();
+      // Disable semua input jumlah
+      document.querySelectorAll('.product-selection input[type="number"]').forEach(inp => {
+        inp.disabled = true;
+      });
+    });
 
 // Pilih pesanan
   const checkboxes = document.querySelectorAll('.product-selection input[type="checkbox"]');
+
+
+  // Kalkulator harga otomatis
+  function updateTotalHarga() {
+    let total = 0;
+    document.querySelectorAll('.product-selection label').forEach(label => {
+      const cb = label.querySelector('input[type="checkbox"]');
+      const qtyInput = label.querySelector('input[type="number"]');
+      const harga = parseInt(cb.getAttribute('data-harga')) || 0;
+      const qty = cb.checked ? (parseInt(qtyInput.value) || 1) : 0;
+      if (cb.checked) total += harga * qty;
+    });
+    document.getElementById('total-harga').textContent = total > 0 ? 'Rp' + total.toLocaleString('id-ID') : 'Rp0';
+  }
 
   checkboxes.forEach(cb => {
     cb.addEventListener('change', function() {
       const qtyInput = this.nextElementSibling;
       qtyInput.disabled = !this.checked;
       if (!this.checked) qtyInput.value = '';
+      updateTotalHarga();
     });
+  });
+  document.querySelectorAll('.product-selection input[type="number"]').forEach(inp => {
+    inp.addEventListener('input', updateTotalHarga);
   });
 
 
@@ -72,8 +94,6 @@ document.addEventListener('click', function(e){
     update();
   });
 
-// Pesanan
-console.log(pesan);
-window.open(urlWa, '_blank');
+
 
 
