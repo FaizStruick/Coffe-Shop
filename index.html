@@ -86,10 +86,12 @@
 
     <!--Menu Section Start-->
     <section id="menu" class="menu">
+
       <h2><span>Menu</span> Kami</h2>
-      <p>Hallo pecinta kopi, silahkan pilih menu yang sudah tersedia sesuai
-        dengan selera anda.
-      </p>
+      <p>Hallo pecinta kopi, silahkan pilih menu yang sudah tersedia sesuai dengan selera anda.</p>
+      <div style="text-align:center; margin: 2rem 0;">
+        <input type="text" id="menu-search" placeholder="Cari menu..." style="padding:0.7rem 1.2rem; border-radius:0.5rem; border:1px solid #ccc; width: 80%; max-width: 350px; font-size:1rem;">
+      </div>
 
         <div class="row">
           <div class="menu-card">
@@ -234,6 +236,25 @@
     </script>
     <!--My JavaScript-->
     <script src="js/script.js"></script>
+    <script>
+      // Menu search filter
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('menu-search');
+        if (searchInput) {
+          searchInput.addEventListener('input', function() {
+            const keyword = this.value.toLowerCase();
+            document.querySelectorAll('.menu-card').forEach(card => {
+              const title = card.querySelector('.menu-card-title').textContent.toLowerCase();
+              if (title.includes(keyword)) {
+                card.style.display = '';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        }
+      });
+    </script>
 
 
   <!--AOS Section-->
