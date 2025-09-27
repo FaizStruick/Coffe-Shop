@@ -1,3 +1,22 @@
+/* Weather widget responsive */
+@media (max-width: 600px) {
+    #weather-widget {
+        right: 0.7rem !important;
+        left: auto !important;
+        bottom: 0.7rem !important;
+        padding: 0.7rem 1rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 0.8rem !important;
+        min-width: 0;
+        max-width: 90vw;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.13);
+        gap: 0.5rem !important;
+    }
+    #weather-widget img, #weather-widget span {
+        font-size: 1.2rem !important;
+        width: 1.5rem !important;
+    }
+}
 /* Ukuran checkbox menu agar sedang */
 .contact .row form .input-group .product-selection input[type="checkbox"] {
     width: 1.2em;
