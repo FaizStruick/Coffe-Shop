@@ -230,12 +230,44 @@
      </footer>
     <!-- Footer End-->
 
+<!-- Weather Widget Start -->
+<div id="weather-widget" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;background:#fff7ed;color:#5a3c1a;padding:1.1rem 1.7rem;border-radius:1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.13);font-size:1.1rem;display:flex;align-items:center;gap:1rem;transition:opacity 0.3s;opacity:0.92;">
+  <span style="font-size:1.7rem;">☀️</span>
+  <div>
+    <strong>Bandung</strong><br>
+    Cerah, 28°C
+  </div>
+</div>
+<!-- Weather Widget End -->
+
     <!--Feather icons-->
     <script>
       feather.replace();
     </script>
     <!--My JavaScript-->
     <script src="js/script.js"></script>
+    <!-- Weather Widget (real-time with OpenWeatherMap API) -->
+    <script>
+      // Ganti YOUR_API_KEY dengan API key OpenWeatherMap milikmu
+      const API_KEY = 'YOUR_API_KEY';
+      const city = 'Bandung';
+      const widget = document.getElementById('weather-widget');
+      if (API_KEY !== 'YOUR_API_KEY') {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=id`)
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.weather && data.weather[0]) {
+              const icon = data.weather[0].icon;
+              const desc = data.weather[0].description;
+              const temp = Math.round(data.main.temp);
+              widget.innerHTML = `
+                <img src='https://openweathermap.org/img/wn/${icon}@2x.png' alt='${desc}' style='width:2.2rem;vertical-align:middle;'>
+                <div><strong>${city}</strong><br>${desc.charAt(0).toUpperCase() + desc.slice(1)}, ${temp}°C</div>
+              `;
+            }
+          });
+      }
+    </script>
     <script>
       // Menu search filter
       document.addEventListener('DOMContentLoaded', function() {
