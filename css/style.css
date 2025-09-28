@@ -1,3 +1,164 @@
+/* Weather Widget Interaktif */
+#weather-widget.weather-fade-in {
+    animation: weatherFadeIn 0.7s cubic-bezier(.4,2,.6,1) 1;
+}
+@keyframes weatherFadeIn {
+    0% { opacity: 0.2; transform: translateY(20px) scale(0.95); }
+    100% { opacity: 0.92; transform: translateY(0) scale(1); }
+}
+/* WhatsApp Floating Chat Button */
+/* WhatsApp Floating Chat Button - moved to bottom left */
+.wa-float {
+    position: fixed;
+    left: 2.2rem;
+    bottom: 2.2rem;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* WhatsApp Chat Button - improved position to avoid overlapping logo widget */
+    /* WhatsApp Chat Button - moved to bottom left */
+    .wa-chat-btn {
+        position: fixed;
+        left: 36px;
+        bottom: 36px;
+        z-index: 1100;
+        background: linear-gradient(135deg, #25d366 60%, #128c7e 100%);
+        color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 24px rgba(37, 211, 102, 0.2);
+        cursor: pointer;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .wa-chat-btn:hover {
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+        transform: scale(1.08);
+    }
+    .wa-chat-btn .wa-bubble {
+        position: absolute;
+        left: 80px;
+        bottom: 16px;
+        background: #fff;
+        color: #128c7e;
+        padding: 8px 18px;
+        border-radius: 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 2px 12px rgba(37, 211, 102, 0.12);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s, left 0.3s;
+        z-index: 1200;
+    }
+    .wa-chat-btn:hover .wa-bubble {
+        opacity: 1;
+        left: 100px;
+    }
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+@keyframes wa-pop {
+    0% { transform: scale(0.7) translateY(30px); opacity: 0; }
+    80% { transform: scale(1.08) translateY(-6px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@media (max-width: 600px) {
+    .wa-float {
+        right: 1rem;
+        bottom: 1rem;
+    }
+    .wa-bubble {
+        font-size: 0.98rem;
+        padding: 0.7rem 1.1rem;
+        max-width: 90vw;
+    }
+    .wa-float svg {
+        width: 38px;
+        height: 38px;
+    }
+}
+/* --- RESPONSIVE OPTIMIZATION --- */
+@media (max-width: 900px) {
+    .about, .menu, .contact {
+        padding: 4.5rem 3% 2rem;
+    }
+    .menu .row .menu-card {
+        width: 90vw;
+        max-width: 320px;
+        height: auto;
+        min-height: 220px;
+        margin: 1.2rem auto;
+    }
+    .menu .row .menu-card img {
+        width: 38vw;
+        max-width: 120px;
+    }
+    }
+    .about .row .content h3 {
+        font-size: 1.2rem;
+    }
+    .about .row .content p {
+        font-size: 1rem;
+    }
+    .menu h2, .contact h2 {
+        font-size: 2rem;
+    }
+    .hero .content h1 {
+        font-size: 2em;
+    }
+    .hero .content p {
+        font-size: 1rem;
+    }
+    .hero .content .cta {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .contact .row form {
+        max-width: 95vw;
+        margin: auto;
+        padding: 1.2rem 0.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .contact .row .maps {
+        height: 30rem;
+        border-radius: 1rem;
+    }
+    .contact .row form .input-group .product-selection label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 0.7rem;
+        font-size: 1rem;
+    }
+    .contact .row form .input-group .product-selection input[type="number"] {
+        width: 100%;
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+    .contact .row form .input-group {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1rem 0.5rem;
+        border-radius: 0.7rem;
+    }
+    .contact .row form .button-group {
+        align-self: stretch;
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem 0 0.5rem 0;
+    }
+    .contact .row form .button-group .btn {
+        width: 70%;
+        font-size: 1.1rem;
+        padding: 1.2rem 0;
+    }
 /* Ripple effect for button */
 .ripple-btn {
     position: relative;
@@ -131,9 +292,11 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg);
-    color: #fff;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background: linear-gradient(120deg,#f7ede2 0%,#fff 100%);
+    color: #222;
+    letter-spacing: 0.01em;
+    font-size: 1.08rem;
 }
 /* NAVBAR */
 .navbar{
@@ -264,9 +427,10 @@ body {
 }
 /* About Section */
 .about, 
-.menu,
+ .menu,
 .contact {
-    padding: 7rem 7% 1.4rem;
+    padding: 7rem 7% 3.5rem;
+    margin-bottom: 2.5rem;
 }
 .about h2,
 .menu h2,
@@ -280,8 +444,16 @@ body {
 .contact h2 span{
     color: var(--primary);
 }
-.about .row{
-    display: flex;
+.about .row .content p,
+ .menu h2,
+.contact h2{
+    text-align: center;
+    font-size: 3.1rem;
+    margin-bottom: 3.2rem;
+    color: #222;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.10);
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
@@ -370,7 +542,11 @@ body {
     perspective: 1000px;
     width: 200px;
     height: 250px;
-    margin: 1rem;
+    margin: 1.5rem 1.2rem;
+    box-shadow: 0 8px 36px 0 rgba(80, 60, 30, 0.13), 0 1.5px 8px rgba(160, 120, 60, 0.10);
+    border-radius: 1.2rem;
+    background: linear-gradient(135deg, #fff7ed 60%, #f3e7d9 100%);
+    transition: box-shadow 0.25s, transform 0.18s;
 }
 .menu .row .menu-inner {
     position: relative;
@@ -413,9 +589,8 @@ body {
     cursor: pointer;
 }
 .menu .row .menu-card:hover {
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: scale(1.07) translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.10);
 }
 .menu .row .menu-card img{
     width: 45%;
@@ -429,14 +604,37 @@ body {
     transition: all 0.4s ease;
 }
 .menu .row .menu-card .menu-card-title{
-    margin: 1rem auto 0.5rem;
-    color: var(--primary);
-    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    color: #a67c52;
+    text-shadow: 0 2px 8px rgba(166,124,82,0.10);
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+/* Elegant headings for h1, h2, h3 */
+h1, h2, h3, .menu h2, .contact h2, .about h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        letter-spacing: 0.5px;
 }
+
+/* Wave SVG Section Separator */
+.wave-separator {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+}
+
 .menu .row .menu-card .menu-card-price {
-    font-size: 1.5rem;
-    color: #ccc;
-    font-weight: 300;
+    font-size: 1.15rem;
+    color: #222;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.10);
 }
 
 /* Contact Section */
@@ -545,20 +743,28 @@ body {
 }
 
 .contact .row form .button-group .btn {
-    padding: 1rem 2.5rem;
-    font-size: 1.7rem;
-    color: white;
+    padding: 1.1rem 2.7rem;
+    font-size: 1.25rem;
+    color: #fff;
     border: none;
     background-color: var(--primary);
     cursor: pointer;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
+    border-radius: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    transition: all 0.3s cubic-bezier(.4,1.4,.6,1);
+    position: relative;
+    overflow: hidden;
 }
 
 
 .contact .row form .button-group .btn:hover {
     background-color: #a7784d;
-    transform: scale(1.05);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    filter: brightness(1.08);
 }
 
 
@@ -602,13 +808,6 @@ footer:hover{
 
 
 
-/* Media Queries */
-/* Laptop */
-@Media (max-width: 1366px){
-    html {
-        font-size: 75%;
-    }
-}
 /* Tablet */
 @media (max-width: 768px){
     html {

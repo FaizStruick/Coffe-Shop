@@ -1,3 +1,39 @@
+// === Weather Widget Real-time & Interaktif ===
+// Ganti 'YOUR_API_KEY' dengan API key OpenWeatherMap milik Anda
+const WEATHER_API_KEY = 'YOUR_API_KEY';
+const WEATHER_CITY = 'Bandung';
+const weatherWidget = document.getElementById('weather-widget');
+if (weatherWidget && WEATHER_API_KEY !== 'YOUR_API_KEY') {
+  weatherWidget.style.opacity = '0.5';
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CITY}&appid=${WEATHER_API_KEY}&units=metric&lang=id`)
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.weather && data.weather[0]) {
+        const icon = data.weather[0].icon;
+        const desc = data.weather[0].description;
+        const temp = Math.round(data.main.temp);
+        weatherWidget.innerHTML = `
+          <img src='https://openweathermap.org/img/wn/${icon}@2x.png' alt='${desc}' style='width:2.2rem;vertical-align:middle;'>
+          <div><strong>${WEATHER_CITY}</strong><br>${desc.charAt(0).toUpperCase() + desc.slice(1)}, ${temp}°C</div>
+        `;
+        weatherWidget.classList.add('weather-fade-in');
+        setTimeout(() => weatherWidget.style.opacity = '0.92', 300);
+      }
+    })
+    .catch(() => {
+      weatherWidget.innerHTML = `<span style='font-size:1.7rem;'>☁️</span><div><strong>${WEATHER_CITY}</strong><br>Cuaca tidak tersedia</div>`;
+      weatherWidget.style.opacity = '0.92';
+    });
+  // Hover effect interaktif
+  weatherWidget.addEventListener('mouseenter', () => {
+    weatherWidget.style.boxShadow = '0 6px 24px rgba(37,211,102,0.18)';
+    weatherWidget.style.transform = 'scale(1.04)';
+  });
+  weatherWidget.addEventListener('mouseleave', () => {
+    weatherWidget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.13)';
+    weatherWidget.style.transform = 'scale(1)';
+  });
+}
 //Toggle class active
 const navbarNav = document.querySelector
 ('.navbar-nav');
