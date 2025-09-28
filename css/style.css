@@ -70,8 +70,9 @@
 }
 @media (max-width: 600px) {
     .wa-float {
-        right: 1rem;
-        bottom: 1rem;
+        left: 1rem !important;
+        right: auto !important;
+        bottom: 1rem !important;
     }
     .wa-bubble {
         font-size: 0.98rem;
