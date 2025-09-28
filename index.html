@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KOPI KENANGAN</title>
+    <title>Kopi Kenangan</title>
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -86,11 +86,12 @@
 
     <!--Hero Section Start-->
     <section class="hero" id="Home">
+      <div class="parallax-bg" id="parallax-bg"></div>
+    <main class="content" style="position:relative;z-index:2;">
+    </main>
       <main class="content">
         <h1>Mari nikmati secangkir <span>Kopi</span></h1>
-        <p>
-          Nikmati secangkir kopi untuk menjalani kehidupan sepanjang hari.
-        </p>
+        
         <a href="#contact" class="cta"> Beli Sekarang </a>
       </main>
     </section>
@@ -360,6 +361,24 @@
         }
       });
     </script>
+
+    <!--Parallax style-->
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const bg = document.getElementById('parallax-bg');
+  function parallaxScroll() {
+    const scrolled = window.scrollY;
+    bg.style.transform = `translateY(${scrolled * 0.28}px) scale(1.04)`;
+  }
+  window.addEventListener('scroll', parallaxScroll);
+  // Mouse move effect (desktop)
+  bg.addEventListener('mousemove', function(e) {
+    const x = (e.clientX / window.innerWidth - 0.5) * 12;
+    const y = (e.clientY / window.innerHeight - 0.5) * 8;
+    bg.style.transform += ` translate(${x}px,${y}px)`;
+  });
+});
+</script>
 
 
   <!--AOS Section-->
