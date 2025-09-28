@@ -160,6 +160,20 @@
         font-size: 1.1rem;
         padding: 1.2rem 0;
     }
+    .wa-float {
+        left: 1rem !important;
+        right: auto !important;
+        bottom: 1rem !important;
+    }
+    .wa-bubble {
+        font-size: 0.98rem;
+        padding: 0.7rem 1.1rem;
+        max-width: 90vw;
+    }
+    .wa-float svg {
+        width: 38px;
+        height: 38px;
+    }
 /* Ripple effect for button */
 .ripple-btn {
     position: relative;
