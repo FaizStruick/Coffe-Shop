@@ -73,6 +73,7 @@
         left: 1rem !important;
         right: auto !important;
         bottom: 1rem !important;
+        top: auto !important;
     }
     .wa-bubble {
         font-size: 0.98rem;
